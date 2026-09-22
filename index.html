@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The hows of ice | Specialty Coffee & Training</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cafe: {
+                            cream: '#fdfbf7', 
+                            sand: '#eaddcf', 
+                            latte: '#c6a88b', 
+                            mocha: '#704f36', 
+                            espresso: '#3e2723', 
+                            charcoal: '#2d2d2d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fdfbf7;
+            color: #3e2723;
+        }
+        
+        .menu-item-hidden {
+            display: none !important;
+        }
+
+        .menu-item {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #3e2723;
+            color: #fdfbf7;
+            border-color: #3e2723;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdfbf7; }
+        ::-webkit-scrollbar-thumb { background: #c6a88b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #704f36; }
+    </style>
+</head>
+<body class="font-sans antialiased text-cafe-charcoal flex flex-col min-h-screen">
+
+    <header class="fixed w-full top-0 z-50 bg-cafe-cream/95 backdrop-blur-md border-b border-cafe-sand transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-cafe-espresso flex items-center gap-2">
+                        <i class="ph ph-coffee text-3xl"></i>
+                        The hows of ice
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-cafe-espresso hover:text-cafe-mocha font-medium transition-colors">Home</a>
+                    <a href="#menu" class="text-cafe-espresso hover:text-cafe-mocha font-medium transition-colors">Menu</a>
+                    <a href="#training" class="text-cafe-espresso hover:text-cafe-mocha font-medium transition-colors">Training</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full bg-cafe-espresso text-cafe-cream hover:bg-cafe-mocha transition-colors font-medium">Contact Us</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-cafe-espresso hover:text-cafe-mocha focus:outline-none">
+                        <i class="ph ph-list text-3xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cafe-cream border-t border-cafe-sand">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-cafe-espresso hover:bg-cafe-sand rounded-md">Home</a>
+                <a href="#menu" class="block px-3 py-2 text-base font-medium text-cafe-espresso hover:bg-cafe-sand rounded-md">Menu</a>
+                <a href="#training" class="block px-3 py-2 text-base font-medium text-cafe-espresso hover:bg-cafe-sand rounded-md">Training</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-cafe-espresso hover:bg-cafe-sand rounded-md">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+        <section id="home" class="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=1920&q=80" 
+                     onerror="this.src='https://placehold.co/1920x1080/2d2d2d/fdfbf7?text=The+hows+of+ice'" 
+                     alt="Cafe atmosphere" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-cafe-espresso/60 mix-blend-multiply"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                    Welcome to<br>The hows of ice
+                </h1>
+                <p class="text-lg md:text-xl text-cafe-cream/90 mb-10 max-w-2xl mx-auto font-light">
+                    Your local haven for artisanal coffee, fresh pastries, and professional barista training.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#menu" class="px-8 py-3 rounded-full bg-cafe-cream text-cafe-espresso font-semibold hover:bg-white transition-all shadow-lg">
+                        Explore Menu
+                    </a>
+                    <a href="#training" class="px-8 py-3 rounded-full border-2 border-cafe-cream text-cafe-cream font-semibold hover:bg-cafe-cream hover:text-cafe-espresso transition-all">
+                        View Training
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-cafe-espresso mb-4">Our Menu</h2>
+                    <p class="text-cafe-charcoal text-lg">Quality ingredients, crafted with care.</p>
+                </div>
+
+                <!-- Menu Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12" id="menu-filters">
+                    <button class="filter-btn active px-6 py-2 rounded-full border border-cafe-latte text-cafe-espresso font-medium transition-all hover:bg-cafe-sand" data-filter="all">All</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-cafe-latte text-cafe-espresso font-medium transition-all hover:bg-cafe-sand" data-filter="coffee">Coffee</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-cafe-latte text-cafe-espresso font-medium transition-all hover:bg-cafe-sand" data-filter="non-coffee">Non-Coffee</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-cafe-latte text-cafe-espresso font-medium transition-all hover:bg-cafe-sand" data-filter="pastries">Pastries</button>
+                </div>
+
+                <!-- Menu Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+                    
+                    <!-- Coffee Items -->
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="coffee">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/eaddcf/3e2723?text=House+Espresso'" 
+                             alt="Espresso" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">House Espresso</h3>
+                                <span class="font-semibold text-cafe-mocha">₱120</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Rich, full-bodied double shot of our signature blend.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="coffee">
+                        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/eaddcf/3e2723?text=Vanilla+Latte'" 
+                             alt="Latte" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Vanilla Latte</h3>
+                                <span class="font-semibold text-cafe-mocha">₱160</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Espresso with steamed milk and house-made vanilla syrup.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="coffee">
+                        <img src="https://images.unsplash.com/photo-1498604293992-628d0ee5df2b?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/eaddcf/3e2723?text=Pour+Over'" 
+                             alt="Pour Over" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Single Origin Pour Over</h3>
+                                <span class="font-semibold text-cafe-mocha">₱150</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Hand-poured filter coffee featuring rotating single-origin beans.</p>
+                        </div>
+                    </div>
+
+                    <!-- Non-Coffee Items -->
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="non-coffee">
+                        <img src="https://images.unsplash.com/photo-1536514072410-5019a3c69182?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/c6a88b/3e2723?text=Matcha+Latte'" 
+                             alt="Matcha Latte" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Matcha Latte</h3>
+                                <span class="font-semibold text-cafe-mocha">₱180</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Ceremonial grade matcha whisked with gently steamed milk.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="non-coffee">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/c6a88b/3e2723?text=Spiced+Chai'" 
+                             alt="Chai" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Spiced Chai</h3>
+                                <span class="font-semibold text-cafe-mocha">₱150</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Black tea blended with aromatic spices and honey.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pastries -->
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="pastries">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f40ce88f4?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/eaddcf/704f36?text=Butter+Croissant'" 
+                             alt="Croissant" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Butter Croissant</h3>
+                                <span class="font-semibold text-cafe-mocha">₱95</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Flaky, golden, and buttery. Baked fresh every morning.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-item bg-cafe-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-cafe-sand" data-category="pastries">
+                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/eaddcf/704f36?text=Blueberry+Muffin'" 
+                             alt="Muffin" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-cafe-espresso">Blueberry Muffin</h3>
+                                <span class="font-semibold text-cafe-mocha">₱110</span>
+                            </div>
+                            <p class="text-cafe-charcoal text-sm">Loaded with wild blueberries and topped with a streusel crumb.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="training" class="py-20 bg-cafe-sand/30 border-y border-cafe-sand">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-cafe-espresso mb-4">Training & Services</h2>
+                    <p class="text-cafe-charcoal text-lg">Elevate your coffee game or launch your own dream cafe with our specialized packages.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    
+                    <!-- Package 1: Masterclass -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-cafe-sand overflow-hidden flex flex-col transition-transform hover:-translate-y-2">
+                        <div class="bg-cafe-latte text-center py-4">
+                            <h3 class="font-serif text-2xl font-bold text-cafe-espresso">Barista Masterclass</h3>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <p class="text-cafe-charcoal mb-6 text-center italic">Perfect for enthusiasts & beginners</p>
+                            <ul class="space-y-4 mb-8 flex-grow">
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-cafe-mocha text-xl mt-0.5"></i>
+                                    <span class="text-cafe-charcoal">Fundamentals of espresso extraction</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-cafe-mocha text-xl mt-0.5"></i>
+                                    <span class="text-cafe-charcoal">Milk texturing and steaming techniques</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-cafe-mocha text-xl mt-0.5"></i>
+                                    <span class="text-cafe-charcoal">Basic to intermediate latte art</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-check-circle text-cafe-mocha text-xl mt-0.5"></i>
+                                    <span class="text-cafe-charcoal">Equipment maintenance & cleaning</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <span class="block text-3xl font-bold text-cafe-espresso mb-4">₱4,500</span>
+                                <a href="#contact" class="inline-block w-full px-6 py-3 rounded-xl bg-cafe-espresso text-cafe-cream font-semibold hover:bg-cafe-mocha transition-colors">Book Training</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Package 2: Starter Kit -->
+                    <div class="bg-cafe-espresso rounded-2xl shadow-xl border border-cafe-mocha overflow-hidden flex flex-col relative transition-transform hover:-translate-y-2">
+                        <div class="absolute top-0 right-0 bg-cafe-latte text-cafe-espresso text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                        <div class="bg-cafe-mocha text-center py-4">
+                            <h3 class="font-serif text-2xl font-bold text-cafe-cream">The Cafe Starter Kit</h3>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <p class="text-cafe-sand mb-6 text-center italic">For aspiring cafe owners & personal brands</p>
+                            <ul class="space-y-4 mb-8 flex-grow">
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-star text-cafe-latte text-xl mt-0.5"></i>
+                                    <span class="text-cafe-cream"><strong>Full Barista Masterclass included</strong></span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-laptop text-cafe-latte text-xl mt-0.5"></i>
+                                    <span class="text-cafe-cream">Custom designed, responsive static website</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-palette text-cafe-latte text-xl mt-0.5"></i>
+                                    <span class="text-cafe-cream">Digital menu integration & branding setup</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="ph-fill ph-rocket text-cafe-latte text-xl mt-0.5"></i>
+                                    <span class="text-cafe-cream">Website deployment & handover training</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <span class="block text-3xl font-bold text-cafe-cream mb-4">₱18,000</span>
+                                <a href="#contact" class="inline-block w-full px-6 py-3 rounded-xl bg-cafe-latte text-cafe-espresso font-semibold hover:bg-white transition-colors">Avail Package</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-cafe-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-cafe-espresso mb-10">Get in Touch</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-cafe-sand">
+                        <i class="ph ph-map-pin text-4xl text-cafe-mocha mb-4 mx-auto"></i>
+                        <h4 class="font-bold text-cafe-espresso text-lg mb-2">Location</h4>
+                        <p class="text-cafe-charcoal">123 Brew Avenue<br>Quezon City, Metro Manila</p>
+                    </div>
+                    
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-cafe-sand">
+                        <i class="ph ph-clock text-4xl text-cafe-mocha mb-4 mx-auto"></i>
+                        <h4 class="font-bold text-cafe-espresso text-lg mb-2">Hours</h4>
+                        <p class="text-cafe-charcoal">Mon - Fri: 7:00 AM - 8:00 PM<br>Sat - Sun: 8:00 AM - 9:00 PM</p>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-cafe-sand">
+                        <i class="ph ph-envelope-simple text-4xl text-cafe-mocha mb-4 mx-auto"></i>
+                        <h4 class="font-bold text-cafe-espresso text-lg mb-2">Contact</h4>
+                        <p class="text-cafe-charcoal">0917 123 4567<br>hello@thehowsofice.ph</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-cafe-espresso text-cafe-sand py-8 border-t border-cafe-mocha">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i class="ph ph-coffee text-xl"></i>
+                <span class="font-serif font-bold text-lg">The hows of ice</span>
+            </div>
+            <p class="text-sm text-cafe-latte">
+                &copy; <span id="year"></span> The hows of ice. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('ph-x');
+                menuIcon.classList.add('ph-list');
+            } else {
+                menuIcon.classList.remove('ph-list');
+                menuIcon.classList.add('ph-x');
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('ph-x');
+                menuIcon.classList.add('ph-list');
+            });
+        });
+
+        // Navbar Shadow on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Menu Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                menuItems.forEach(item => {
+                    item.style.animation = 'none';
+                    item.offsetHeight; // trigger reflow
+
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('menu-item-hidden');
+                        item.style.animation = 'fadeIn 0.5s ease-in forwards';
+                    } else {
+                        item.classList.add('menu-item-hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
